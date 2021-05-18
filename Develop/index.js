@@ -30,10 +30,6 @@
 
 
 
-
-
-
-
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
@@ -89,7 +85,7 @@ const questions = [
   },
   {
     type: 'confirm',
-    name: 'questions',
+    name: 'question',
     message: 'Would you like to include a questions section?: '
   }
 ];

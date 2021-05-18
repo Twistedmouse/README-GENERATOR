@@ -1,3 +1,10 @@
+
+//TODO:license links add the license section
+//[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)]
+//[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)]
+//[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)]
+
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}

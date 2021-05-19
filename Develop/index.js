@@ -36,7 +36,7 @@ const fs = require('fs');
 const markdownGenerator = require('./utils/generateMarkdown');
   
 console.log('!!Time to create a new README!!');
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 const questions = [
   {
     type: 'input',
@@ -97,7 +97,6 @@ function writeToFile(fileName, data) {
     if (err) throw err;
     console.log('Writing README...')
   })
-  console.log(answers);
 }
 
 
@@ -106,7 +105,7 @@ function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log('Example: \n')
   })
-  writeToFile(fileName, data)
+  writeToFile(fileName, generateMarkdown(data))
 }
 
 

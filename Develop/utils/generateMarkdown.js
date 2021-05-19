@@ -4,7 +4,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === 'MIT') {
-    return `[![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)]`
+    return `[![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)](${renderLicenseLink(license)})`
   }
   if (license === 'GPL') {
     return `[![GPLv3 License](https://img.shields.io/badge/GPL-License-blue)]`
@@ -21,14 +21,13 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'MIT') {
-    return `<a https://opensource.org/licenses/MIT>MIT<a>`
+    return `https://opensource.org/licenses/MIT`
   }
   if (license === 'GPL') {
-    return `<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL<a>`
+    return `https://www.gnu.org/licenses/gpl-3.0.en.html`
   }
   if (license === 'Apache') {
-    return `<a href="https://www.apache.org/licenses/LICENSE-2.0">
-    [![Apache License](https://img.shields.io/badge/Apache-License-blue)]<a>`
+    return `https://www.apache.org/licenses/LICENSE-2.0`
   }
   if (license === 'None') {
     return `" "`
@@ -38,13 +37,13 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-
+  return ``
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title} 
-
+function generateMarkdown(answers) {
+  return `# ${answers.title} 
+  ${renderLicenseBadge(answers.license)}
   <br>
 
   --- 
@@ -53,7 +52,7 @@ function generateMarkdown(data) {
   <br>
   
   # DESCRIPTION 
-  ## ${data.description} 
+  ## ${answers.description} 
 
 `;
 }

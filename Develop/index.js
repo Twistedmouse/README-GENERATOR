@@ -33,9 +33,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-const markdownGenerator = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
   
-console.log('!!Time to create a new README!!');
+console.log('!!Time to create a new README!! LETS GO!');
 // An array of questions for user input
 const questions = [
   {
@@ -48,64 +48,77 @@ const questions = [
     name: 'title',
     message: 'Please Enter your README project title: ',
   },
-  {
-    type: 'editor',
-    name: 'description',
-    message: 'Now please write a description: ',
-  },
-  {
-    type: 'editor',
-    name: 'table',
-    message: 'A contents table would be handy: ',
-  },
-  {
-    type: 'editor',
-    name: 'installation',
-    message: 'You may want to enter some installation instructions: ',
-  },
-  {
-    type: 'input',
-    name: 'usage',
-    message: 'How about some usage instructions: ',
-  },
+  // {
+  //   type: 'editor',
+  //   name: 'description',
+  //   message: 'Now please write a description: ',
+  // },
+  // {
+  //   type: 'editor',
+  //   name: 'table',
+  //   message: 'A contents table would be handy: ',
+  // },
+  // {
+  //   type: 'editor',
+  //   name: 'installation',
+  //   message: 'You may want to enter some installation instructions: ',
+  // },
+  // {
+  //   type: 'input',
+  //   name: 'usage',
+  //   message: 'How about some usage instructions: ',
+  // },
   {
     type: 'list',
     name: 'license',
     message: 'Choose your preferred licensing: ', 
     choices: ['Apache', 'GPL', 'MIT', 'None']
-  },
-  {
-    type: 'input',
-    name: 'contributing',
-    message: 'What are your contribution guidelines: ',
-  },
-  {
-    type: 'input',
-    name: 'tests',
-    message: "Test information: ",
-  },
-  {
-    type: 'confirm',
-    name: 'question',
-    message: 'Would you like to include a questions section?: '
-  }
+  }//,
+  // {
+  //   type: 'input',
+  //   name: 'contributing',
+  //   message: 'What are your contribution guidelines: ',
+  // },
+  // {
+  //   type: 'input',
+  //   name: 'tests',
+  //   message: "Test information: ",
+  // },
+  // {
+  //   type: 'confirm',
+  //   name: 'question',
+  //   message: 'Would you like to include a questions section?: '
+  // }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(`${fileName}.md`, data, function (err){
+// a function to write README file
+function writeToFile(answers) {
+  fs.writeFile(`${answers.fileName}.md`, generateMarkdown(answers), function (err){
     if (err) throw err;
     console.log('Writing README...')
   })
 }
+// original code
+// function writeToFile(fileName, markDownString) {
+//   fs.writeFile(`${fileName}.md`, markDownString, function (err){
+//     if (err) throw err;
+//     console.log('Writing README...')
+//     console.log(`${fileName}.md`)
+//   })
+// }
 
 
-// TODO: Create a function to initialize app
+// a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log('Example: \n')
+    writeToFile(answers)
   })
-  writeToFile(fileName, generateMarkdown(data))
+  // original code
+  // inquirer.prompt(questions).then((answers) => {
+  //   console.log('Example: \n')
+  //   writeToFile(answers.fileName, generateMarkdown(answers))
+  // })
 }
 
 

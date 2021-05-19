@@ -41,61 +41,62 @@ const questions = [
   {
     type: 'input',
     name: 'fileName',
-    message: 'Enter the README file name (title only no extension): ',
+    message: 'Enter the README file name (File name only no extension): ',
   },
   {
     type: 'input',
     name: 'title',
     message: 'Please Enter your README project title: ',
   },
-  // {
-  //   type: 'editor',
-  //   name: 'description',
-  //   message: 'Now please write a description: ',
-  // },
-  // {
-  //   type: 'editor',
-  //   name: 'table',
-  //   message: 'A contents table would be handy: ',
-  // },
-  // {
-  //   type: 'editor',
-  //   name: 'installation',
-  //   message: 'You may want to enter some installation instructions: ',
-  // },
-  // {
-  //   type: 'input',
-  //   name: 'usage',
-  //   message: 'How about some usage instructions: ',
-  // },
+  {
+    type: 'editor',
+    name: 'description',
+    message: 'Now please write a description: ',
+  },
+  {
+    type: 'editor',
+    name: 'table',
+    message: 'A contents table would be handy: ',
+  },
+  {
+    type: 'editor',
+    name: 'installation',
+    message: 'You may want to enter some installation instructions: ',
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'How about some usage instructions: ',
+  },
   {
     type: 'list',
     name: 'license',
     message: 'Choose your preferred licensing: ', 
     choices: ['Apache', 'GPL', 'MIT', 'None']
-  }//,
-  // {
-  //   type: 'input',
-  //   name: 'contributing',
-  //   message: 'What are your contribution guidelines: ',
-  // },
-  // {
-  //   type: 'input',
-  //   name: 'tests',
-  //   message: "Test information: ",
-  // },
-  // {
-  //   type: 'confirm',
-  //   name: 'question',
-  //   message: 'Would you like to include a questions section?: '
-  // }
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'What are your contribution guidelines: ',
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: "Test information: ",
+  },
+  {
+    type: 'confirm',
+    name: 'question',
+    message: 'Would you like to include a questions section?: '
+  }
 ];
 
 // a function to write README file
 function writeToFile(answers) {
   fs.writeFile(`${answers.fileName}.md`, generateMarkdown(answers), function (err){
     if (err) throw err;
-    console.log('Writing README...')
+    console.log(`Writing ${answers.fileName}.md...`)
+    console.log(`\n ...${answers.fileName}.md created.`)
   })
 }
 // original code
@@ -111,7 +112,7 @@ function writeToFile(answers) {
 // a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    console.log('Example: \n')
+    console.log(' \n ')
     writeToFile(answers)
   })
   // original code

@@ -1,25 +1,51 @@
 
-//TODO:license links add the license section
-//[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)]
-//[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)]
-//[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)]
 
-
-// TODO: Create a function that returns a license badge based on which license is passed in
+// a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license === 'MIT') {
+    return `[![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)]`
+  }
+  if (license === 'GPL') {
+    return `[![GPLv3 License](https://img.shields.io/badge/GPL-License-blue)]`
+  }
+  if (license === 'Apache') {
+    return `[![Apache License](https://img.shields.io/badge/Apache-License-blue)]`
+  }
+  if (license === 'None') {
+    return `""`
+  }
+}
 
-// TODO: Create a function that returns the license link
+// Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === 'MIT') {
+    return `<a https://opensource.org/licenses/MIT>MIT<a>`
+  }
+  if (license === 'GPL') {
+    return `<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL<a>`
+  }
+  if (license === 'Apache') {
+    return `<a href="https://www.apache.org/licenses/LICENSE-2.0">
+    [![Apache License](https://img.shields.io/badge/Apache-License-blue)]<a>`
+  }
+  if (license === 'None') {
+    return `" "`
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.title} \n
+  --- \n
+  --- \n
 
 `;
 }

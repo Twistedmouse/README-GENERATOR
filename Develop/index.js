@@ -33,7 +33,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-const generator = require('./utils/generateMarkdown');
+const markdownGenerator = require('./utils/generateMarkdown');
   
 console.log('!!Time to create a new README!!');
 // TODO: Create an array of questions for user input
@@ -72,6 +72,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Choose your preferred licensing: ', 
+    choices: ['Apache', 'GPL', 'MIT', 'None']
   },
   {
     type: 'input',
@@ -96,6 +97,7 @@ function writeToFile(fileName, data) {
     if (err) throw err;
     console.log('Writing README...')
   })
+  console.log(answers);
 }
 
 

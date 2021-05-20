@@ -46,7 +46,7 @@ function renderLicenseSection(license) {
 
 function renderTables(answers) {
   if (answers.table === true) {
-return `
+    return `
 ---
 
 <br>
@@ -63,15 +63,16 @@ ${questionContentTable(answers.question)}
   }
 }
 
-function questionsConfirmed(question) {
-  if (question === true) {
-return `
+function questionsConfirmed(answers) {
+  if (answers.question === true) {
+    return `
 ---
 
 <br>
 
 ## QUESTIONS: 
-todo: placeholder till i write add github and email link 
+If you have questions, head to my [GitHub](https://github.com/${answers.github}) 
+or send an email at ${answers.email}
 `;
   } else {
     return " ";
@@ -85,85 +86,88 @@ function questionContentTable(question) {
   }
 }
 
-// function plansConfirmed(future){
-//   if (question === true) {
-//     return `
-//     ---
+function plansConfirmed(future) {
+  if (future === true) {
+    return `
+---
 
-//     <br>
+<br>
 
-//     ## FUTURE PLANS:
+## FUTURE PLANS:
 
-//     `;
-//   } else {
-//     return " ";
-//   }
-// }
+`;
+  } else {
+    return " ";
+  }
+}
 
 // a function to generate markdown for README
 function generateMarkdown(answers) {
   return `# ${answers.title} ${renderLicenseBadge(answers.license)}
-  
-  --- 
-  --- 
 
-  <br>
-  
-  ## DESCRIPTION: 
-  ${answers.description}
-  
+--- 
+--- 
 
-  ${renderTables(answers)}
-  
-    
-  ---
+<br>
 
-  <br>
-
-  ## INSTALLATION:
-
-  ${answers.installation}
+## DESCRIPTION: 
+${answers.description}
 
 
-  ---
-
-  <br>
-
-  ## USAGE: 
-
-  ${answers.license}
+${renderTables(answers)}
 
 
-  ---
+---
 
-  <br>
+<br>
 
-  ## CONTRIBUTION GUIDELINES:
+## INSTALLATION:
 
-  
-  ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
-  ${answers.contributing}
-  
-
-  ---
-
-  <br>
-
-  ## TESTS:
-
-  ${answers.tests}
+${answers.installation}
 
 
-  ${questionsConfirmed(answers.question)}
+---
+
+<br>
+
+## USAGE: 
 
 
-  ---
-  ---
+${answers.usage}
+
+
+---
+
+<br>
+
+## CONTRIBUTION GUIDELINES:
+
+
+![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
+${answers.contributing}
+
+
+---
+
+<br>
+
+## TESTS:
+
+${answers.tests}
+
+
+${questionsConfirmed(answers)}
+
+
+${plansConfirmed(answers.future)}
+
+${renderLicenseLink(answers.license)}
+${renderLicenseSection(answers.license)}
+---
+---
 
 
 `;
 }
 
 module.exports = generateMarkdown;
-
-//${plansConfirmed(answers.future)} todo: work out why this section sends error when have more time

@@ -12,93 +12,105 @@
 // WHEN I choose a license for my application from a list of options
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 
-//TODO:
 // WHEN I enter my GitHub username
 // THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
 
-//TODO:
 // WHEN I enter my email address
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 
-//TODO:
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
 
-
-
 // packages needed for this application
-const inquirer = require('inquirer')
-const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
-  
-console.log('!!Time to create a new README!! LETS GO!');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
+
+console.log("!!Time to create a new README!! LETS GO!");
 // An array of questions for user input
 const questions = [
   {
-    type: 'input',
-    name: 'fileName',
-    message: 'Enter the README file name (File name only no extension): ',
+    type: "input",
+    name: "fileName",
+    message: "Enter the README file name (File name only no extension): ",
   },
   {
-    type: 'input',
-    name: 'title',
-    message: 'Please Enter your README project title: ',
+    type: "input",
+    name: "title",
+    message: "Please Enter your README project title: ",
   },
   {
-    type: 'editor',
-    name: 'description',
-    message: 'Now please write a description: ',
+    type: "editor",
+    name: "description",
+    message: "Now please write a description: ",
   },
   {
-    type: 'confirm',
-    name: 'table',
-    message: 'A contents table would be handy: ',
+    type: "confirm",
+    name: "table",
+    message: "A contents table would be handy: ",
   },
   {
-    type: 'editor',
-    name: 'installation',
-    message: 'You may want to enter some installation instructions: ',
+    type: "editor",
+    name: "installation",
+    message: "You may want to enter some installation instructions: ",
   },
   {
-    type: 'editor',
-    name: 'usage',
-    message: 'How about some usage instructions: ',
+    type: "editor",
+    name: "usage",
+    message: "How about some usage instructions: ",
   },
   {
-    type: 'list',
-    name: 'license',
-    message: 'Choose your preferred licensing: ', 
-    choices: ['Apache', 'GPL', 'MIT', 'None']
+    type: "list",
+    name: "license",
+    message: "Choose your preferred licensing: ",
+    choices: ["Apache", "GPL", "MIT", "None"],
   },
   {
-    type: 'input',
-    name: 'contributing',
-    message: 'What are your contribution guidelines: ',
+    type: "input",
+    name: "contributing",
+    message: "What are your contribution guidelines: ",
   },
   {
-    type: 'input',
-    name: 'tests',
+    type: "input",
+    name: "tests",
     message: "Test information: ",
   },
   {
-    type: 'confirm',
-    name: 'question', //todo: add email and git hub
-    message: 'Would you like to include a questions section?: '
-  }//, todo: when have more time add future plans section 
-  // {
-  //   type: 'confirm',
-  //   name: 'future',
-  //   message: 'Lastly do you have any plans you would like to document for the future?'
-  // }
+    type: "confirm",
+    name: "question",
+    message: "Would you like to include a questions section?: ",
+  },
+  {
+    when: (answers) => answers.question === true,
+    type: "input",
+    name: "github",
+    message: "Enter your GitHub username.",
+  },
+  {
+    when: (answers) => answers.question === true,
+    type: "input",
+    name: "email",
+    message: "Enter your Email address.",
+  },
+  {
+    type: "confirm",
+    name: "future",
+    message:
+      "Lastly do you have any plans you would like to document for the future?",
+  },
 ];
 
 // a function to write README file
 function writeToFile(answers) {
-  fs.writeFile(`${answers.fileName}.md`, generateMarkdown(answers), function (err){
-    if (err) throw err;
-    console.log(`Writing ${answers.fileName}.md...`)
-    console.log(`\n ...${answers.fileName}.md created.`)
-  })
+  fs.writeFile(
+    `${answers.fileName}.md`,
+    generateMarkdown(answers),
+    function (err) {
+      if (err) throw err;
+      console.log(`Writing ${answers.fileName}.md...`);
+      console.log(`\n ...${answers.fileName}.md created.`);
+    }
+  );
 }
 // original code
 // function writeToFile(fileName, markDownString) {
@@ -109,20 +121,18 @@ function writeToFile(answers) {
 //   })
 // }
 
-
 // a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    console.log(' \n ')
-    writeToFile(answers)
-  })
+    console.log(" \n ");
+    writeToFile(answers);
+  });
   // original code
   // inquirer.prompt(questions).then((answers) => {
   //   console.log('Example: \n')
   //   writeToFile(answers.fileName, generateMarkdown(answers))
   // })
 }
-
 
 // Function call to initialize app
 init();

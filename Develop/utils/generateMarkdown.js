@@ -40,10 +40,35 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-  return ``;
-}
+// function renderLicenseSection(answers, name) {
+//   if (answers.license === "Apache") {
+//     return `
+// ${renderLicenseLink(answers.license)} License
+// Version 2.0, January 2004
+// http://www.apache.org/licenses/
+// `;
+//   }
 
+//   if (answers.license === "GNU") {
+//     return `
+// ${renderLicenseLink(answers.license)} GENERAL PUBLIC LICENSE
+// Version 3, 29 June 2007
+// Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+// `;
+//   }
+
+//   if (answers.license === "MIT") {
+//     return `
+// ${renderLicenseLink(answers.license)} License
+// Copyright (c) 2021 ${name}
+// `;
+//   }
+// }
+// if (answers.license === "None") {
+//   return "";
+// }
+
+//renders a contents table in the markdown
 function renderTables(answers) {
   if (answers.table === true) {
     return `
@@ -144,7 +169,7 @@ ${answers.usage}
 
 
 ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
-${answers.contributing}
+${answers.contributing} \n
 
 
 ---
@@ -163,6 +188,7 @@ ${plansConfirmed(answers.future)}
 
 ${renderLicenseLink(answers.license)}
 ${renderLicenseSection(answers.license)}
+
 ---
 ---
 

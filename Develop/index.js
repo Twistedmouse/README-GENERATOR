@@ -30,9 +30,15 @@ console.log("!!Time to create a new README!! LETS GO!");
 // An array of questions for user input
 const questions = [
   {
-    type: "input",
+    type: "input", //todo:make so cant enter white space for filename (maybe filter look into later.) 
+                   //todo:have alook at a would you like to use editor function incase user would like to enter text after the readme is generated
     name: "fileName",
     message: "Enter the README file name (File name only no extension): ",
+    // filter: function(answers){
+    //   if (answers.fileName === undefined) {
+    //     answers.fileName = "README";
+    //   }
+    // }
   },
   {
     type: "input",

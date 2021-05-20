@@ -1,4 +1,4 @@
-# test [![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)](https://opensource.org/licenses/MIT)
+#  [![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)](https://opensource.org/licenses/MIT)
   
   --- 
   --- 
@@ -8,16 +8,10 @@
   ## DESCRIPTION: 
   
   
+
+   
   
-  ---
-
-  <br>
-
-  ## CONTENTS:
-
-  
-
-
+    
   ---
 
   <br>
@@ -44,7 +38,7 @@
 
   
   ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
-  dsfsdf
+  
   
 
   ---
@@ -53,16 +47,18 @@
 
   ## TESTS:
 
-  rte
+  
 
 
   
-    ---
+---
 
-    <br>
+<br>
 
-    ## QUESTIONS: 
-    todo: placeholder till i write
+## QUESTIONS: 
+todo: placeholder till i write add github and email link 
+
+
 
   ---
   ---

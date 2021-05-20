@@ -26,7 +26,7 @@
 
 
 
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
@@ -50,7 +50,7 @@ const questions = [
     message: 'Now please write a description: ',
   },
   {
-    type: 'editor',
+    type: 'confirm',
     name: 'table',
     message: 'A contents table would be handy: ',
   },
@@ -60,7 +60,7 @@ const questions = [
     message: 'You may want to enter some installation instructions: ',
   },
   {
-    type: 'input',
+    type: 'editor',
     name: 'usage',
     message: 'How about some usage instructions: ',
   },
@@ -82,9 +82,14 @@ const questions = [
   },
   {
     type: 'confirm',
-    name: 'question',
+    name: 'question', //todo: add email and git hub
     message: 'Would you like to include a questions section?: '
-  }
+  }//, todo: when have more time add future plans section 
+  // {
+  //   type: 'confirm',
+  //   name: 'future',
+  //   message: 'Lastly do you have any plans you would like to document for the future?'
+  // }
 ];
 
 // a function to write README file

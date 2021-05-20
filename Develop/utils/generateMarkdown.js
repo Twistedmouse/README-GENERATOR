@@ -44,20 +44,61 @@ function renderLicenseSection(license) {
   return ``;
 }
 
-function questionsConfirmed(question) {
-  if (question === true) {
-    return `
-    ---
+function renderTables(answers) {
+  if (answers.table === true) {
+return `
+---
 
-    <br>
+<br>
 
-    ## QUESTIONS: 
-    todo: placeholder till i write
-    `;
+## CONTENTS:
+* [Installation](#INSTALLATION:)
+* [Usage](#USAGE:)
+* [Contribution guidelines](#CONTRIBUTION-GUIDELINES:)
+* [Tests](#TESTS:)
+${questionContentTable(answers.question)}
+`;
   } else {
     return " ";
   }
 }
+
+function questionsConfirmed(question) {
+  if (question === true) {
+return `
+---
+
+<br>
+
+## QUESTIONS: 
+todo: placeholder till i write add github and email link 
+`;
+  } else {
+    return " ";
+  }
+}
+function questionContentTable(question) {
+  if (question === true) {
+    return `* [Questions](#QUESTIONS:)`;
+  } else {
+    return " ";
+  }
+}
+
+// function plansConfirmed(future){
+//   if (question === true) {
+//     return `
+//     ---
+
+//     <br>
+
+//     ## FUTURE PLANS:
+
+//     `;
+//   } else {
+//     return " ";
+//   }
+// }
 
 // a function to generate markdown for README
 function generateMarkdown(answers) {
@@ -71,16 +112,10 @@ function generateMarkdown(answers) {
   ## DESCRIPTION: 
   ${answers.description}
   
+
+  ${renderTables(answers)}
   
-  ---
-
-  <br>
-
-  ## CONTENTS:
-
-  ${answers.table}
-
-
+    
   ---
 
   <br>
@@ -121,6 +156,7 @@ function generateMarkdown(answers) {
 
   ${questionsConfirmed(answers.question)}
 
+
   ---
   ---
 
@@ -129,3 +165,5 @@ function generateMarkdown(answers) {
 }
 
 module.exports = generateMarkdown;
+
+//${plansConfirmed(answers.future)} todo: work out why this section sends error when have more time

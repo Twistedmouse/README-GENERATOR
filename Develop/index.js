@@ -46,6 +46,11 @@ const questions = [
     message: "Please Enter your README project title: ",
   },
   {
+    type: "input",
+    name: "author",
+    message: "Please enter author's name: ", 
+  },
+  {
     type: "editor",
     name: "description",
     message: "Now please write a description: ",

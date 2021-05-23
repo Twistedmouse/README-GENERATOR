@@ -1,4 +1,4 @@
-# working generator [![Apache License](https://img.shields.io/badge/Apache-License-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+# test [![MIT License](https://img.shields.io/badge/MIT-Licence-yellow)](https://opensource.org/licenses/MIT)
 
 --- 
 --- 
@@ -6,7 +6,6 @@
 <br>
 
 ## DESCRIPTION: 
-does it work
 
 
 
@@ -51,7 +50,8 @@ does it work
 
 
 ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)
-doooo iiittt
+ 
+
 
 
 ---
@@ -60,7 +60,7 @@ doooo iiittt
 
 ## TESTS:
 
-testtest
+
 
 
 
@@ -69,15 +69,27 @@ testtest
 <br>
 
 ## QUESTIONS: 
-If you have questions, head to my [GitHub](https://github.com/Twistedmouse) 
-or send an email at mousy93@hotmail.com
+If you have questions, head to my [GitHub](https://github.com/) 
+or send an email at 
 
 
 
- 
+
+---
+
+<br>
+
+## FUTURE PLANS:
 
 
-Apache
+
+https://opensource.org/licenses/MIT
+
+
+https://opensource.org/licenses/MIT License
+Copyright (c) 2021 tristan
+
+
 ---
 ---
 

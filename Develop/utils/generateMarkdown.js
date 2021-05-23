@@ -40,7 +40,7 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(answers, name) {
+function renderLicenseSection(answers) {
   if (answers.license === "Apache") {
     return `
 ${renderLicenseLink(answers.license)} License
@@ -60,12 +60,12 @@ Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is p
   if (answers.license === "MIT") {
     return `
 ${renderLicenseLink(answers.license)} License
-Copyright (c) 2021 ${name}
+Copyright (c) 2021 ${answers.author}
 `;
   }
-}
-if (answers.license === "None") {
-  return "";
+  if (answers.license === "None") {
+    return "";
+  }
 }
 
 //renders a contents table in the markdown
@@ -128,7 +128,9 @@ function plansConfirmed(future) {
 
 // a function to generate markdown for README
 function generateMarkdown(answers) {
-  return `# ${answers.title} ${renderLicenseBadge(answers.license)}
+  return `# ${answers.title} 
+  
+  ${renderLicenseBadge(answers.license)}
 
 --- 
 --- 
@@ -187,7 +189,8 @@ ${questionsConfirmed(answers)}
 ${plansConfirmed(answers.future)}
 
 ${renderLicenseLink(answers.license)}
-${renderLicenseSection(answers.license)}
+
+${renderLicenseSection(answers)}
 
 ---
 ---

@@ -46,6 +46,7 @@ function renderLicenseSection(answers) {
 ${renderLicenseLink(answers.license)} License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
+${renderLicenseBadge(answers.license)}
 `;
   }
 
@@ -54,6 +55,7 @@ http://www.apache.org/licenses/
 ${renderLicenseLink(answers.license)} GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+${renderLicenseBadge(answers.license)}
 `;
   }
 
@@ -61,6 +63,7 @@ Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/ Everyone is p
     return `
 ${renderLicenseLink(answers.license)} License
 Copyright (c) 2021 ${answers.author}
+${renderLicenseBadge(answers.license)}
 `;
   }
   if (answers.license === "None") {
@@ -188,13 +191,10 @@ ${questionsConfirmed(answers)}
 
 ${plansConfirmed(answers.future)}
 
-${renderLicenseLink(answers.license)}
 
+---
+---
 ${renderLicenseSection(answers)}
-
----
----
-
 
 `;
 }

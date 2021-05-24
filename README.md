@@ -69,10 +69,10 @@ no tests in any test enviroments at this point.
 ## DEMO: 
 
 
-![demoShot](Develop/video demo/demoshot.png)
+![demoShot](Develop/video-demo/demoshot.png)
 
 
-![Demo](Develop/video demo/2021-05-24 13-01-49.gif)
+![Demo](Develop/video-demo/2021-05-24 13-01-49.gif)
 
 
 ---

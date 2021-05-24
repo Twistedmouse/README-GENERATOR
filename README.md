@@ -72,7 +72,8 @@ no tests in any test enviroments at this point.
 ![demoShot](Develop/video-demo/demoshot.png)
 
 
-![Demo](Develop/video-demo/2021-05-24 13-01-49.gif)
+![Demo](Develop/video-demo/demo-gif.gif)
+
 
 
 ---
